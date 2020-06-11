@@ -1,5 +1,5 @@
 defmodule Nadia.Behaviour do
-  alias Nadia.Model.{User, Message, Update, UserProfilePhotos, File, Error}
+  alias Nadia.Model.{ChatPermissions, User, Message, Update, UserProfilePhotos, File, Error}
 
   @callback get_me :: {:ok, User.t()} | {:error, Error.t()}
   @callback send_message(integer, binary, [{atom, any}]) ::
@@ -31,6 +31,9 @@ defmodule Nadia.Behaviour do
   @callback kick_chat_member(integer | binary, integer) :: :ok | {:error, Error.t()}
   @callback leave_chat(integer | binary) :: :ok | {:error, Error.t()}
   @callback unban_chat_member(integer | binary, integer) :: :ok | {:error, Error.t()}
+  @callback restrict_chat_member(integer() | binary(), integer(), ChatPermissions.t(), integer()) ::
+              :ok
+              | {:error, Error.t()}
   @callback get_chat(integer | binary) :: {:ok, Chat.t()} | {:error, Error.t()}
   @callback get_chat_administrators(integer | binary) ::
               {:ok, [ChatMember.t()]} | {:error, Error.t()}
