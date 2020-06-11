@@ -125,7 +125,12 @@ defmodule Nadia.ParserTest do
                    photo: %Nadia.Model.ChatPhoto{small_file_id: "sid", big_file_id: "bid"}
                  },
                  date: 1_508_359_228,
-                 from: %Nadia.Model.User{first_name: "John", id: 440_000_000, last_name: "Doe"},
+                 from: %Nadia.Model.User{
+                   first_name: "John",
+                   id: 440_000_000,
+                   is_bot: false,
+                   last_name: "Doe"
+                 },
                  message_id: 3,
                  text: "Test"
                },

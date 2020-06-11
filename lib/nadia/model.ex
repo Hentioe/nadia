@@ -7,8 +7,15 @@ defmodule Nadia.Model do
   """
 
   defmodule User do
-    defstruct id: nil, first_name: nil, last_name: nil, username: nil
-    @type t :: %User{id: integer, first_name: binary, last_name: binary, username: binary}
+    defstruct id: nil, is_bot: nil, first_name: nil, last_name: nil, username: nil
+
+    @type t :: %User{
+            id: integer,
+            is_bot: boolean(),
+            first_name: binary,
+            last_name: binary,
+            username: binary
+          }
   end
 
   defmodule ChatPhoto do
@@ -23,7 +30,10 @@ defmodule Nadia.Model do
               username: nil,
               first_name: nil,
               last_name: nil,
-              photo: nil
+              photo: nil,
+              description: nil,
+              invite_link: nil,
+              permissions: nil
 
     @type t :: %Chat{
             id: integer,
@@ -32,7 +42,10 @@ defmodule Nadia.Model do
             username: binary,
             first_name: binary,
             last_name: binary,
-            photo: ChatPhoto.t()
+            photo: ChatPhoto.t(),
+            description: binary(),
+            invite_link: binary(),
+            permissions: ChatPermissions.t()
           }
   end
 
@@ -363,8 +376,14 @@ defmodule Nadia.Model do
   end
 
   defmodule ChatMember do
-    defstruct user: nil, status: nil
-    @type t :: %ChatMember{user: User.t(), status: binary}
+    defstruct user: nil, status: nil, can_restrict_members: nil, can_promote_members: nil
+
+    @type t :: %ChatMember{
+            user: User.t(),
+            status: binary,
+            can_restrict_members: boolean(),
+            can_promote_members: boolean()
+          }
   end
 
   defmodule ChatPermissions do
