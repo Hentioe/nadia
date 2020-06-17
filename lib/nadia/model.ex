@@ -416,7 +416,6 @@ defmodule Nadia.Model do
         |> Map.from_struct()
         |> Enum.filter(fn {_, v} -> v == nil end)
         |> Enum.map(fn {k, _} -> k end)
-        |> IO.inspect()
 
       params = value |> Map.from_struct() |> Map.drop(empty_keys)
 
