@@ -128,7 +128,7 @@ defmodule Nadia.Graph do
   * `path` path to the Telegraph page (in the format Title-12-31, i.e. everything that comes after http://telegra.ph/)
   * `return_content` - if true, content field will be returned in Page object
   """
-  @spec get_page(binary, [atom]) :: {:ok, Page.t()} | {:error, Error.t()}
+  @spec get_page(binary, boolean()) :: {:ok, Page.t()} | {:error, Error.t()}
   def get_page(path, return_content \\ true) do
     request("getPage/" <> path, return_content: return_content)
   end
