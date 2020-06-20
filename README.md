@@ -1,4 +1,4 @@
-Nadia [![Build Status](https://travis-ci.com/zhyu/nadia.svg?branch=master)](https://travis-ci.com/zhyu/nadia) [![Inline docs](http://inch-ci.org/github/zhyu/nadia.svg)](http://inch-ci.org/github/zhyu/nadia) [![Hex pm](https://img.shields.io/hexpm/v/nadia.svg)](https://hex.pm/packages/nadia) [![Hex.pm](https://img.shields.io/hexpm/dt/nadia.svg)](https://hex.pm/packages/nadia)
+Nadia ![Elixir CI](https://github.com/zhyu/nadia/workflows/Elixir%20CI/badge.svg) [![Inline docs](http://inch-ci.org/github/zhyu/nadia.svg)](http://inch-ci.org/github/zhyu/nadia) [![Hex pm](https://img.shields.io/hexpm/v/nadia.svg)](https://hex.pm/packages/nadia) [![Hex.pm](https://img.shields.io/hexpm/dt/nadia.svg)](https://hex.pm/packages/nadia)
 =====
 
 Telegram Bot API Wrapper written in Elixir ([document](https://hexdocs.pm/nadia/))
@@ -54,16 +54,6 @@ Environment variables may be used as well:
 config :nadia,
   token: {:system, "ENVVAR_WITH_MYAPP_TOKEN", "default_value_if_needed"}
 ```
-
-And then, in `mix.exs`, list `:nadia` as an application inside `application/0`:
-
-```elixir
-def application do
-  [applications: [:nadia]]
-end
-```
-
-Now Mix will guarantee the `:nadia` application is started before your application is started.
 
 ## Usage
 
