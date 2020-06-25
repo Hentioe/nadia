@@ -376,13 +376,18 @@ defmodule Nadia.Model do
   end
 
   defmodule ChatMember do
-    defstruct user: nil, status: nil, can_restrict_members: nil, can_promote_members: nil
+    defstruct user: nil,
+              status: nil,
+              can_restrict_members: nil,
+              can_promote_members: nil,
+              can_send_messages: nil
 
     @type t :: %ChatMember{
             user: User.t(),
             status: binary,
             can_restrict_members: boolean(),
-            can_promote_members: boolean()
+            can_promote_members: boolean(),
+            can_send_messages: boolean()
           }
   end
 
